@@ -4,8 +4,7 @@
   "description": "A twitter reminder BOT",
   "main": "BOT.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon BOT.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ani Chidera James",
   "license": "ISC",
