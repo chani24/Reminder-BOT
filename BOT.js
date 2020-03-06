@@ -5,7 +5,7 @@ const moment = require('moment');
 var db;
 var CronJob = require('cron').CronJob;
 
-var job = new CronJob('5 23 * * * *', function() {
+var job = new CronJob('1 23 * * * *', function() {
   getDueReminders();
 }, null, true, 'America/Los_Angeles');
 job.start();
@@ -92,7 +92,7 @@ return arr[0] === 'RT' ? true : false;
 
 //function that retrieves date
 const getDate = tweet => {
-let regex = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+let regex = /^\d{2}\/\d{2}\/\d{4}$/;
 let arr = tweet.replace('.', '').split(' ');
 let date = arr[arr.length -1];
 if(regex.test(date)){
@@ -105,7 +105,7 @@ if(regex.test(date)){
 let sendStatus = (user, id) => {
   T.post('statuses/update',
     {
-      status: `Hello @${user} here is your reminder for today, Goodluck !`,
+      status: `Hello @${user} here is your reminder, Goodluck !`,
       in_reply_to_status_id: id
     }, (err, data) => {
       if (err) {
