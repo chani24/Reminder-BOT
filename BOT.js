@@ -5,7 +5,6 @@ const moment = require('moment');
 var db;
 var CronJob = require('cron').CronJob;
 
-
 var job = new CronJob('5 23 * * * *', function() {
   getDueReminders();
 }, null, true, 'America/Los_Angeles');
@@ -18,7 +17,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 // Connection URL
-const url = 'mongodb+srv://chani:chidera4life@reminder-clients-vapgd.mongodb.net/test?retryWrites=true&w=majority';
+const url = `mongodb+srv://chani:${process.env.PASS}@reminder-clients-vapgd.mongodb.net/test?retryWrites=true&w=majority`;
 
 // Use connect method to connect to the Server
 MongoClient.connect(url,
